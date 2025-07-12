@@ -41,9 +41,22 @@ async function getPokemon() {
 		  pokemonCard.style.display = 'flex';
 		  pokemonCard.style.flexDirection = 'column';
 		  pokemonCard.style.alignItems = 'center';
+
+		  pokemonCard.addEventListener('mouseover' , () => {
+			pokemonCard.style.transform = 'scale(1.1)';
+			pokemonCard.style.background = 'black';
+			pokemonCard.style.color = 'white';
+			pokemonImage.style.background = 'white';
+		  });
+  
+		  pokemonCard.addEventListener('mouseout' , () => {
+			pokemonCard.style.transform = 'scale(1)';
+			pokemonCard.style.background = 'white';
+			pokemonCard.style.color = 'black';
+		  });
   
 		  const pokemonName = document.createElement('h2');
-		  pokemonName.textContent = `#${pokemonCount + 1} ${pokemon.name}`;
+		  pokemonName.textContent = `${pokemonCount + 1}. ${pokemon.name}`;
 		  pokemonName.style.fontSize = '24px';
 		  pokemonName.style.fontWeight = 'bold';
 		  pokemonName.style.marginBottom = '10px';
@@ -51,7 +64,7 @@ async function getPokemon() {
 		  const pokemonImage = document.createElement('img');
 		  pokemonImage.style.width = '100px';
 		  pokemonImage.style.height = '100px';
-		  pokemonImage.style.borderRadius = '50%';
+		  pokemonImage.style.borderRadius = '10px';
 		  pokemonImage.style.marginBottom = '10px';
   
 		  // Используем try-catch для обработки ошибок при загрузке изображений
